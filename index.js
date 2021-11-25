@@ -6,9 +6,7 @@
 
 export const reass9 = (reactiveVar, newObject = {}) => {
   const keys = Object.keys(reactiveVar);
-  const newKeys = Object.keys(newObject);
-  const missedKeys = keys.filter((k) => !newKeys.includes(k));
 
+  keys.forEach((k) => { delete reactiveVar[k]; });
   Object.assign(reactiveVar, newObject);
-  missedKeys.forEach((k) => { delete reactiveVar[k]; });
 };
