@@ -1,6 +1,9 @@
 ```
 <template>
   <q-button @click="onClick">click me</q-button>
+
+  <q-input v-model="formData.input1">
+  <q-input v-model="formData.input2">
 </template>
 
 <script setup>
