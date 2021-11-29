@@ -1,3 +1,11 @@
+const emptyObj = (obj)=>{
+  if(Array.isArray(obj)) obj.splice(0,obj.length)
+  else{
+    const keys = Object.keys(obj);
+    keys.forEach((k) => { delete obj[k]; });
+  }
+}
+
 /**
  * 
  * @param {Object} reactiveVar 
@@ -5,8 +13,7 @@
  */
 
 export const reass9 = (reactiveVar, newObject = {}) => {
-  const keys = Object.keys(reactiveVar);
-
-  keys.forEach((k) => { delete reactiveVar[k]; });
+  emptyObj(reactiveVar)
+  
   Object.assign(reactiveVar, newObject);
 };
